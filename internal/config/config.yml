@@ -1,0 +1,9 @@
+database:
+  name: 'data.db'
+  path: './tmp'
+
+default_region: 'US'
+
+server:
+  host: '127.0.0.1'
+  port: 10001
