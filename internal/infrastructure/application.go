@@ -5,16 +5,16 @@ import (
 	"github.com/cipma/smsbin/app"
 	"github.com/cipma/smsbin/app/command"
 	"github.com/cipma/smsbin/app/query"
-	"github.com/cipma/smsbin/infrastructure/bunt"
 	"github.com/cipma/smsbin/infrastructure/config"
 	"github.com/cipma/smsbin/infrastructure/phonenumber"
 	"github.com/cipma/smsbin/infrastructure/segment"
+	"github.com/cipma/smsbin/infrastructure/storm"
 )
 
 func NewApplication(_ context.Context) app.Application {
 	configuration := config.GetConfig()
 
-	smsRepository := bunt.NewBuntSmsRepository(bunt.ClientOptions{
+	smsRepository := storm.NewSmsRepository(storm.Options{
 		Path: configuration.GetString("database.path"),
 		Name: configuration.GetString("database.name"),
 	})

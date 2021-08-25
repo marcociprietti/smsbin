@@ -5,7 +5,6 @@ import (
 )
 
 type AllSmsQuery struct {
-
 }
 
 type AllSmsHandler struct {

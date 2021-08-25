@@ -3,6 +3,8 @@ PROJECTNAME=smsbin
 GOBASE=$(shell pwd)
 GOBIN=$(GOBASE)/bin
 
+go-run:
+	@go run main.go
 
 go-build:
 	@echo "  > Building binary"
