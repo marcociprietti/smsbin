@@ -5,7 +5,7 @@ import (
 )
 
 type Sms struct {
-	Uuid         string
+	Uuid         string `storm:"id"`
 	Text         string
 	From         string
 	To           string

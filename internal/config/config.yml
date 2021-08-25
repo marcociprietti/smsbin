@@ -2,7 +2,7 @@ database:
   name: 'data.db'
   path: './tmp'
 
-default_region: 'US'
+default_region: 'IT'
 
 server:
   host: '127.0.0.1'
