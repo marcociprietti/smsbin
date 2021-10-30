@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: ./internal
+    volumes:
+      - ./internal:/go/src:rw
+    ports:
+      - 10013:8080
+
+  client:
+    build:
+      context: ./client
+    volumes:
+      - ./client:/app
+    depends_on:
+      - api
+    ports:
+      - 10012:8080

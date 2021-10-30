@@ -82,14 +82,16 @@ type AllSmsItem struct {
 	Uuid string    `json:"uuid"`
 	From string    `json:"from"`
 	To   string    `json:"to"`
+	Text string	   `json:"text"`
 	When time.Time `json:"when"`
 }
 
 func AllSmsItemFromModel(model *sms.Sms) AllSmsItem {
 	return AllSmsItem{
 		Uuid: model.Uuid,
-		From: model.From,
-		To:   model.To,
+		From: model.FromMetadata.InternationalFormatted,
+		To:   model.ToMetadata.InternationalFormatted,
+		Text: model.Text,
 		When: model.When,
 	}
 }

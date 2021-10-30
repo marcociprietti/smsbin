@@ -12,6 +12,7 @@ import (
 	"github.com/cipma/smsbin/infrastructure/dto"
 	"github.com/google/uuid"
 	"github.com/julienschmidt/httprouter"
+	"github.com/rs/cors"
 	"net/http"
 	"strconv"
 )
@@ -28,11 +29,13 @@ func RunHttpServer(application app.Application) {
 	router.GET("/sms/:id", server.FindSms)
 	router.GET("/sms", server.FindAllSms)
 
+	handler := cors.AllowAll().Handler(router)
+
 	configuration := config.GetConfig()
 	host := configuration.GetString("server.host")
 	port := configuration.GetInt("server.port")
 
-	err := http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), router)
+	err := http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), handler)
 	if err != nil {
 		panic(err)
 	}

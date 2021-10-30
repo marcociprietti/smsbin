@@ -8,6 +8,7 @@ require (
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/nyaruka/phonenumbers v1.0.69
 	github.com/pelletier/go-toml v1.7.0 // indirect
+	github.com/rs/cors v1.8.0
 	github.com/spf13/viper v1.7.1
 	github.com/stretchr/testify v1.7.0
 	github.com/tidwall/buntdb v1.2.3
